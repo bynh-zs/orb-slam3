@@ -57,10 +57,26 @@ orb-slam3/
 
 ## 本地工具
 
+两个脚本都在 `scripts/`，纯 bash，无额外依赖。
+
+**同步（在工作机 Ubuntu 上跑）**
+
 ```bash
-bash scripts/collect.sh      # 从工作机同步代码与产物，并提交
-bash scripts/build_all.sh    # 批量编译所有已有步骤
+bash scripts/collect.sh                                  # 自动探测 ~/vins/1steps 等目录
+bash scripts/collect.sh --vins ~/vins/1steps --mono ~/slam/1steps
 ```
+
+把 `stepN/` 下的源码收进 `handwritten/<线>/stepN/`，把图与结果收进 `handwritten/<线>/results/stepN/`，`build/` 自动排除。收完自动 `git add` + `git commit`，**不 push**。
+
+**批量编译**
+
+```bash
+bash scripts/build_all.sh              # 全部
+bash scripts/build_all.sh vins         # 只编 VINS
+bash scripts/build_all.sh vins 4       # 只编 VINS 的 step4
+```
+
+有 `CMakeLists.txt` 走 cmake，否则 `g++ + pkg-config opencv4` 直编。
 
 ## Git 小抄
 
