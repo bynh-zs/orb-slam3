@@ -1,0 +1,13 @@
+# 统一换行，保证脚本在 Linux 上能直接执行
+* text=auto
+*.sh   text eol=lf
+*.py   text eol=lf
+*.md   text
+*.yml  text eol=lf
+*.yaml text eol=lf
+
+# 图片按二进制处理，不做行尾转换与 diff
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.bmp binary

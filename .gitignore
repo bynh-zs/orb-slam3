@@ -1,5 +1,6 @@
 # ===== 数据集大文件（严禁提交到 GitHub，单文件上限 100MB）=====
 Datasets/
+data/mav0/
 datasets/**/*.zip
 datasets/**/*.bag
 *.part
@@ -9,30 +10,40 @@ datasets/**/*.bag
 *.tar
 *.tar.gz
 
-# ===== ORB-SLAM3 编译产物 =====
+# ===== 编译产物（手写线 + 框架）=====
 build/
 *.o
 *.a
 *.so
 *.dylib
+*.obj
+*.out
+CMakeCache.txt
+CMakeFiles/
 Vocabulary/ORBvoc
 Thirdparty/DBoW2/lib/
 Thirdparty/g2o/lib/
 Thirdparty/Sophus/build/
 
-# ===== 运行输出 =====
+# ===== 运行输出（框架侧大轨迹文件不入库）=====
 *.txt.bak
 CameraTrajectory*.txt
 KeyFrameTrajectory*.txt
 f_dataset-*
+# 注意：handwritten/ 下的 stepN_*.png 与 stepN_*.txt 是要入库的产物，不做通配排除
 
 # ===== Python =====
 __pycache__/
 *.pyc
 .venv/
 
-# ===== 系统/编辑器 =====
+# ===== 临时与编辑器 =====
+*.bak
+*.log
+/vtmp/
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
+*.swp
+*~
